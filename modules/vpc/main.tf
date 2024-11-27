@@ -13,11 +13,3 @@ resource "aws_subnet" "public" {
   cidr_block              = var.subnet_cidr
   map_public_ip_on_launch = true
 }
-
-output "vpc_id" {
-  value = aws_vpc.main.id
-}
-
-output "public_subnet_id" {
-  value = aws_subnet.public.id
-}
