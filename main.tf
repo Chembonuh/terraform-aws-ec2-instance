@@ -1,13 +1,29 @@
-module "vpc" {
-  source = "./modules/vpc"
-
-  vpc_name = "my-vpc"
-  cidr     = "10.0.0.0/16"
+# Provider configuration
+provider "aws" {
+  region = var.region
 }
 
-module "s3" {
-  source = "./modules/s3"
+# Call the VPC module
+module "vpc" {
+  source      = "./modules/vpc"
+  vpc_name    = var.vpc_name
+  cidr        = var.vpc_cidr
+  subnet_cidr = var.subnet_cidr
+}
 
-  bucket_name = "my-s3-bucket"
-  region      = "us-west-2"
+# Call the EC2 instance module
+module "ec2_instance" {
+  source        = "./modules/ec2-instance"
+  instance_type = var.instance_type
+  ami_id        = var.ami_id
+  subnet_id     = module.vpc.public_subnet_id
+}
+
+# Outputs
+output "vpc_id" {
+  value = module.vpc.vpc_id
+}
+
+output "ec2_public_ip" {
+  value = module.ec2_instance.public_ip
 }

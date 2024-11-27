@@ -1,13 +1,13 @@
-module "vpc" {
-  source = "./modules/vpc"
+resource "aws_instance" "example" {
+  ami           = var.ami_id
+  instance_type = var.instance_type
+  subnet_id     = var.subnet_id
 
-  vpc_name = "my-vpc"
-  cidr     = "10.0.0.0/16"
+  tags = {
+    Name = "example-instance"
+  }
 }
 
-module "s3" {
-  source = "./modules/s3"
-
-  bucket_name = "my-s3-bucket"
-  region      = "us-west-2"
+output "public_ip" {
+  value = aws_instance.example.public_ip
 }
