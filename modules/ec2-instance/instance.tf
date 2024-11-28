@@ -1,7 +1,7 @@
 resource "aws_instance" "web_server2" {
   ami           = var.instance_ami
   instance_type = var.instance_type
-  key_name      = var.key_name
+  key_name      = wahala
 
   ebs_block_device {
     device_name = "/dev/sdh"
