@@ -1,42 +1,42 @@
-name: Terraform with Terraform Cloud
+# name: Terraform with Terraform Cloud
 
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+# on:
+#   push:
+#     branches:
+#       - main
+#   pull_request:
+#     branches:
+#       - main
 
-jobs:
-  terraform:
-    runs-on: ubuntu-latest
+# jobs:
+#   terraform:
+#     runs-on: ubuntu-latest
 
-    steps:
-      # Step 1: Checkout the code
-      - name: Checkout code
-        uses: actions/checkout@v3
+#     steps:
+#       # Step 1: Checkout the code
+#       - name: Checkout code
+#         uses: actions/checkout@v3
 
-      # Step 2: Export TFC_TOKEN
-      - name: Export Terraform Cloud Token
-        run: echo "TFC_TOKEN=${{ secrets.TFC_TOKEN }}" >> $GITHUB_ENV
+#       # Step 2: Export TFC_TOKEN
+#       - name: Export Terraform Cloud Token
+#         run: echo "TFC_TOKEN=${{ secrets.TFC_TOKEN }}" >> $GITHUB_ENV
 
-      # Step 3: Set up Terraform CLI
-      - name: Set up Terraform
-        uses: hashicorp/setup-terraform@v2
-        with:
-          terraform_version: '1.5.6'
+#       # Step 3: Set up Terraform CLI
+#       - name: Set up Terraform
+#         uses: hashicorp/setup-terraform@v2
+#         with:
+#           terraform_version: '1.5.6'
 
-      # Step 4: Terraform Init
-      - name: Terraform Init
-        working-directory: modules/ec2-instance
-        run: terraform init
+#       # Step 4: Terraform Init
+#       - name: Terraform Init
+#         working-directory: modules/ec2-instance
+#         run: terraform init
 
-      - name: Terraform Plan
-        env:
-          TFC_TOKEN: ${{ secrets.TFC_TOKEN }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          TF_VAR_key_name: "wahala" # Example for setting a variable
-        working-directory: modules/ec2-instance # Specify the directory containing main.tf if needed
-        run: terraform plan
+#       - name: Terraform Plan
+#         env:
+#           TFC_TOKEN: ${{ secrets.TFC_TOKEN }}
+#           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#           TF_VAR_key_name: "wahala" # Example for setting a variable
+#         working-directory: modules/ec2-instance # Specify the directory containing main.tf if needed
+#         run: terraform plan
