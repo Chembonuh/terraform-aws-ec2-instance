@@ -29,12 +29,10 @@ jobs:
 
       # Step 4: Terraform Init
       - name: Terraform Init
+        working-directory: modules/ec2-instance
         run: terraform init
+
       # Step 5: Terraform Plan
       - name: Terraform Plan
+        working-directory: modules/ec2-instance
         run: terraform plan
-
-      # # Step 6: Terraform Apply (optional)
-      # - name: Terraform Apply
-      #   if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-      #   run: terraform apply -auto-approve
