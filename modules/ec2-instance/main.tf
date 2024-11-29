@@ -1,31 +1,31 @@
-provider "aws" {
-  region = var.region
-}
+terraform {
+  required_version = ">= 1.3.0"
 
-resource "aws_instance" "web_server2" {
-  ami           = var.instance_ami
-  instance_type = var.instance_type
-  key_name      = var.key_name
-
-  ebs_block_device {
-    device_name = "/dev/sdh"
-    volume_size = var.volume_size
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
   }
 
-  tags = var.tags
+  backend "remote" {
+    hostname     = "app.terraform.io"
+    organization = "chem"
+
+    workspaces {
+      name = "ec2-instance"
+    }
+  }
 }
 
-output "instance_id" {
-  description = "The ID of the web server instance"
-  value       = aws_instance.web_server2.id
-}
+module "ec2_instance" {
+  source  = "app.terraform.io/chem/ec2-instance"
+  version = "1.0.0"
 
-output "instance_public_ip" {
-  description = "The public IP address of the web server instance"
-  value       = aws_instance.web_server2.public_ip
-}
-
-output "instance_volume_size" {
-  description = "The size of the root volume"
-  value       = aws_instance.web_server2.root_block_device[0].volume_size
+  region        = var.region
+  instance_ami  = var.instance_ami
+  instance_type = var.instance_type
+  volume_size   = var.volume_size
+  tags          = var.tags
+  key_name      = var.key_name
 }
