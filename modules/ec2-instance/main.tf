@@ -1,16 +1,24 @@
+terraform {
+  backend "remote" {
+    hostname     = "app.terraform.io"
+    organization = "chem"
+
+    workspaces {
+      name = "ec2-instance"
+    }
+  }
+}
+
 provider "aws" {
   region = var.region
 }
 
-resource "aws_instance" "web_server" {
-  ami           = var.instance_ami
+module "ec2_instance" {
+  source        = "./modules/ec2-instance"
+  region        = var.region
+  instance_ami  = var.instance_ami
   instance_type = var.instance_type
+  volume_size   = var.volume_size
+  tags          = var.tags
   key_name      = var.key_name
-
-  ebs_block_device {
-    device_name = "/dev/sdh"
-    volume_size = var.volume_size
-  }
-
-  tags = var.tags
 }
