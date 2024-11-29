@@ -1,8 +1,4 @@
 
-provider "aws" {
-  region = var.region
-}
-
 module "ec2_instance" {
   source        = "../../modules/ec2-instance"
   instance_ami  = "ami-0c11a84584d4e09dd"
