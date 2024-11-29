@@ -1,4 +1,4 @@
-name: Terraform with Terraform Cloud
+name: Terraform Workflow
 
 on:
   push:
@@ -14,11 +14,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout the code
+      # Checkout the repository
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Export TFC_TOKEN
+      # Export TFC Token for Terraform Cloud
       - name: Set TFC Token
         run: echo "TFC_TOKEN=${{ secrets.TFC_TOKEN }}" >> $GITHUB_ENV
 
@@ -28,14 +28,24 @@ jobs:
         with:
           terraform_version: 1.5.6
 
-      # Initialize Terraform
+      # Initialize Terraform in the correct directory
       - name: Terraform Init
+        working-directory: modules/ec2-instance
         run: terraform init
 
-      # Format Check
-      - name: Terraform Format Check
-        run: terraform fmt -check
+      # Validate Terraform configuration
+      - name: Terraform Validate
+        working-directory: modules/ec2-instance
+        run: terraform validate
 
-      # Terraform Plan
+      # Plan Terraform changes
       - name: Terraform Plan
+        working-directory: modules/ec2-instance
         run: terraform plan
+
+      # (Optional) Terraform Apply
+      # Run this only for specific events, e.g., on pushes to `main`.
+      - name: Terraform Apply
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        working-directory: modules/ec2-instance
+        run: terraform apply -auto-approve
