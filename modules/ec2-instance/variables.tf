@@ -9,18 +9,18 @@ variable "instance_ami" {
 }
 
 variable "instance_type" {
-  description = "Type of the EC2 instance"
+  description = "The EC2 instance type"
   type        = string
   default     = "t2.micro"
 }
 
 variable "key_name" {
-  description = "The name of the SSH key to use for the instance"
+  description = "The SSH key name for accessing the instance"
   type        = string
 }
 
 variable "volume_size" {
-  description = "The size of the EBS volume in GB"
+  description = "The size of the EBS volume (GB)"
   type        = number
 }
 

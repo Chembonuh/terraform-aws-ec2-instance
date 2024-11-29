@@ -1,5 +1,9 @@
+provider "aws" {
+  region = var.region
+}
+
 resource "aws_instance" "example" {
-  ami           = var.instance_ami   # Use instance_ami
+  ami           = var.instance_ami
   instance_type = var.instance_type
   key_name      = var.key_name
 
