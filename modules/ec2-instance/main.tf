@@ -22,3 +22,4 @@ module "ec2_instance" {
   tags          = var.tags
   key_name      = var.key_name
 }
+
