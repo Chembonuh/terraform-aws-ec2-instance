@@ -1,3 +1,17 @@
+terraform {
+  backend "remote" {
+    hostname     = "app.terraform.io"         # Terraform Cloud's endpoint
+    organization = "chem"   # Your Terraform Cloud organization
+
+    workspaces {
+      name = "terraform"            # Name of your Terraform Cloud workspace
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region                         # Region is passed as a variable
+}
 
 module "ec2_instance" {
   source        = "../../modules/ec2-instance"
