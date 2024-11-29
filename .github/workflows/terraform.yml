@@ -18,7 +18,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Export TFC_TOKEN
+      # Export TFC Token
       - name: Set TFC Token
         run: echo "TFC_TOKEN=${{ secrets.TFC_TOKEN }}" >> $GITHUB_ENV
 
@@ -28,18 +28,32 @@ jobs:
         with:
           terraform_version: 1.5.6
 
-      # Initialize Terraform
+      # Change to the correct working directory (if needed)
+      - name: Change Directory
+        working-directory: modules/ec2-instance
+        run: echo "Switched to ec2-instance module directory"
+
+      # Initialize Terraform (Backend with TFC)
       - name: Terraform Init
+        working-directory: modules/ec2-instance
         run: terraform init
 
       # Format Check
       - name: Terraform Format Check
+        working-directory: modules/ec2-instance
         run: terraform fmt -check
+
+      # Terraform Validate
+      - name: Terraform Validate
+        working-directory: modules/ec2-instance
+        run: terraform validate
 
       # Terraform Plan
       - name: Terraform Plan
+        working-directory: modules/ec2-instance
         run: terraform plan
 
+      # Apply (Uncomment if you want to auto-apply on pushes to main)
       # - name: Terraform Apply
       #   if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       #   working-directory: modules/ec2-instance
