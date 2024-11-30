@@ -51,46 +51,51 @@ jobs:
     name: Publish Terraform Module
     runs-on: ubuntu-latest
 
-    if: startsWith(github.ref, 'refs/tags/v')  # Trigger only for tags
+    if: contains(github.ref, 'refs/tags/v')  # Improved condition to trigger for tags
 
     env:
       TFC_TOKEN: ${{ secrets.TFC_TOKEN }}  # Set TFC_TOKEN once at the job level
 
     steps:
-      # Step 1: Checkout code
+      # Step 1: Debug GitHub Ref
+      - name: Debug GitHub Ref
+        run: echo "GITHUB_REF is $GITHUB_REF"
+
+      # Step 2: Checkout code
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Step 2: Configure Terraform credentials
+      # Step 3: Configure Terraform credentials
       - name: Configure Terraform credentials
         run: |
           mkdir -p ~/.terraform.d
           echo '{"credentials":{"app.terraform.io":{"token":"${TFC_TOKEN}"}}}' > ~/.terraform.d/credentials.tfrc.json
 
-      # Step 3: Set up Terraform
+      # Step 4: Set up Terraform
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v2
         with:
           terraform_version: "1.5.6"
 
-      # Step 4: Terraform Init
+      # Step 5: Terraform Init
       - name: Terraform Init
         working-directory: modules/ec2-instance
         run: terraform init
 
-      # Step 5: Terraform Format Check
+      # Step 6: Terraform Format Check
       - name: Terraform Format Check
         working-directory: modules/ec2-instance
         run: terraform fmt -check
 
-      # Step 6: Terraform Validate
+      # Step 7: Terraform Validate
       - name: Terraform Validate
         working-directory: modules/ec2-instance
         run: terraform validate
 
-      # Step 7: Publish to Terraform Cloud
+      # Step 8: Publish to Terraform Cloud
       - name: Publish to Terraform Cloud
         working-directory: modules/ec2-instance
         run: |
           echo "Publishing module to Terraform Cloud"
           terraform plan
+ 
