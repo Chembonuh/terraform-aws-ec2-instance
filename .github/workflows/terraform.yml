@@ -51,7 +51,7 @@ jobs:
     name: Publish Terraform Module
     runs-on: ubuntu-latest
 
-    if: contains(github.ref, 'refs/tags/v')  # Improved condition to trigger for tags
+    #if: contains(github.ref, 'refs/tags/v')  # Improved condition to trigger for tags
 
     env:
       TFC_TOKEN: ${{ secrets.TFC_TOKEN }}  # Set TFC_TOKEN once at the job level
