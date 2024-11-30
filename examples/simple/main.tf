@@ -4,7 +4,7 @@ terraform {
     organization = "chem"   # Your Terraform Cloud organization
 
     workspaces {
-      name = "openshift"            # Name of your Terraform Cloud workspace
+      name = "terraform-aws-ec2-instance"            # Name of your Terraform Cloud workspace
     }
   }
 }
