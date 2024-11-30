@@ -1,7 +1,7 @@
 terraform {
   backend "remote" {
     hostname     = "app.terraform.io"         # Terraform Cloud's endpoint
-    organization = "chem"   # Your Terraform Cloud organization
+    organization = "Default"   # Your Terraform Cloud organization
 
     workspaces {
       name = "terraform-aws-ec2-instance"            # Name of your Terraform Cloud workspace
