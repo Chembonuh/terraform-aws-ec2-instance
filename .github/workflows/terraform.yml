@@ -109,7 +109,7 @@ on:
       - "v*.*.*"     # Trigger on semantic version tags (e.g., v1.0.0)
   pull_request:
     branches:
-      - main         # Trigger on pull requests targeting main
+      - main         # Trigger on pull requests targeting main 
 
 jobs:
   # Job: Push Configuration to TFC
