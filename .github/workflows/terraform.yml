@@ -143,9 +143,9 @@ jobs:
           terraform_version: "1.5.6"
 
       - name: Terraform Init
-        working-directory: terraform-aws-ec2-instance/examples/simple
+        working-directory: examples/simple
         run: terraform init
 
       - name: Terraform Plan
-        working-directory: terraform-aws-ec2-instance/examples/simple
+        working-directory: examples/simple
         run: terraform plan
