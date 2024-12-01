@@ -21,6 +21,11 @@ variable "key_name" {
   type        = string
   default     = "wahala"
 }
+variable "key_name" {
+  description = "The name of the SSH key pair to use for the instance"
+  type        = string
+  default     = "wahala"
+}
 
 variable "volume_size" {
   description = "The size of the EBS volume (GB)"
