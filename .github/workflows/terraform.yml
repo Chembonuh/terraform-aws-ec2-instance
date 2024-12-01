@@ -38,7 +38,7 @@ jobs:
         run: terraform validate
 
   # Job 2: Publish Module to Terraform Cloud
-   publish:
+  publish:
     name: Publish Terraform Module to TFC
     runs-on: ubuntu-latest
     needs: validate
