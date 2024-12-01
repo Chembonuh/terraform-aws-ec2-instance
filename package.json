@@ -1,0 +1,20 @@
+{
+  "name": "terraform-aws-ec2-instance",
+  "version": "1.0.0",
+  "description": "Terraform AWS EC2 Instance Module",
+  "scripts": {
+    "release": "semantic-release"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.0",
+    "@commitlint/config-conventional": "^17.6.0",
+    "husky": "^8.0.3"
+  },
+  "main": "commitlint.config.js",
+  "directories": {
+    "example": "examples"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

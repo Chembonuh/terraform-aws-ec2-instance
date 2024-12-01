@@ -1,1 +1,22 @@
 node_modules/
+
+# Ignore node_modules (npm dependencies)
+node_modules/
+
+# Ignore Terraform local files
+*.tfstate
+*.tfstate.backup
+.terraform/
+.terraform.lock.hcl
+
+# Ignore editor-specific files
+*.swp
+*.swo
+*.log
+.idea/
+.vscode/
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
