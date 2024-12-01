@@ -14,7 +14,7 @@ provider "aws" {
 }
 
 module "ec2_instance" {
-  source        = "../modules/ec2-instance"    # Corrected relative path
+  source        = "modules/ec2-instance"    # Corrected relative path
   instance_ami  = "ami-0c11a84584d4e09dd"
   region        = "us-east-2"
   instance_type = "t2.micro"
