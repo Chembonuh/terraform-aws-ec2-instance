@@ -42,7 +42,7 @@ jobs:
     name: Publish Terraform Module to TFC
     runs-on: ubuntu-latest
     needs: validate       # Ensure `validate` job completes successfully
-    #if: contains(github.ref, 'refs/tags/v')  # Run only for semantic version tags
+    if: contains(github.ref, 'refs/tags/v')  # Run only for semantic version tags
 
     env:
       TFC_TOKEN: ${{ secrets.TFC_TOKEN }}
