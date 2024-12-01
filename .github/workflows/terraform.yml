@@ -42,7 +42,7 @@ jobs:
       env:
         TFC_TOKEN: ${{ secrets.TFC_TOKEN }}
 
-  # Job 2: Publish Terraform Module to TFC Registry
+  #Job 2: Publish Terraform Module to TFC Registry
   publish:
     name: Publish Terraform Module to TFC Registry
     runs-on: ubuntu-latest
