@@ -31,7 +31,7 @@ variable "volume_size" {
 variable "tags" {
   description = "Tags to apply to the instance"
   type        = map(string)
-  default     = {
+  default = {
     Name        = "web_server"
     Environment = "Production"
   }
