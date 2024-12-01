@@ -28,15 +28,12 @@ jobs:
           terraform_version: "1.5.6"
 
       - name: Terraform Init
-        working-directory: modules/ec2-instance
         run: terraform init
 
       - name: Check Terraform Format
-        working-directory: modules/ec2-instance
         run: terraform fmt -check
 
       - name: Validate Terraform
-        working-directory: modules/ec2-instance
         run: terraform validate
 
   publish:
@@ -68,12 +65,9 @@ jobs:
           terraform_version: "1.5.6"
 
       - name: Terraform Init (Module)
-        working-directory: modules/ec2-instance
         run: terraform init
 
       - name: Publish to TFC Registry
-        working-directory: modules/ec2-instance
         run: |
           echo "Publishing module to Terraform Cloud Registry"
           terraform plan -out=tfplan
-          terraform apply -auto-approve tfplan
