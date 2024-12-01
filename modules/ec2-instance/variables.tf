@@ -1,44 +1,38 @@
 variable "region" {
-  description = "The AWS region to deploy in"
+  description = "AWS region for the instance"
   type        = string
   default     = "us-east-2"
 }
 
 variable "instance_ami" {
-  description = "The AMI ID for the web server instance"
+  description = "The AMI ID for the EC2 instance"
   type        = string
-  default     = "ami-0c11a84584d4e09dd" # Example AMI ID
+  default     = "ami-0c11a84584d4e09dd"
 }
 
 variable "instance_type" {
-  description = "The instance type for the web server"
+  description = "The EC2 instance type"
   type        = string
   default     = "t2.micro"
 }
 
-variable "volume_size" {
-  description = "The size of the EBS volume in GB"
-  type        = number
-  default     = 40
-}
-
 variable "key_name" {
-  description = "The name of the SSH key pair to use for the instance"
+  description = "The SSH key name for accessing the instance"
   type        = string
   default     = "wahala"
 }
 
-variable "tags" {
-  description = "Tags to apply to the resources"
-  type        = map(string)
-  default = {
-    Name        = "webserver"
-    Environment = "Production"
-    Project     = "Website"
-  }
+variable "volume_size" {
+  description = "The size of the EBS volume (GB)"
+  type        = number
+  default     = 40
 }
 
-variable "key_name" {
-  description = "The name of the SSH key pair to use for the instance"
-  type        = string
+variable "tags" {
+  description = "Tags to apply to the instance"
+  type        = map(string)
+  default     = {
+    Name        = "web_server"
+    Environment = "Production"
+  }
 }
