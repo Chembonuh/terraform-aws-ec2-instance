@@ -7,7 +7,7 @@ variable "region" {
 variable "instance_ami" {
   description = "The AMI ID for the web server instance"
   type        = string
-  default     = "ami-0c11a84584d4e09dd"  # Example AMI ID
+  default     = "ami-0c11a84584d4e09dd" # Example AMI ID
 }
 
 variable "instance_type" {
@@ -25,7 +25,7 @@ variable "volume_size" {
 variable "tags" {
   description = "Tags to apply to the resources"
   type        = map(string)
-  default     = {
+  default = {
     Name        = "webserver"
     Environment = "Production"
     Project     = "Website"
