@@ -2,7 +2,7 @@ provider "aws" {
   region = var.region
 }
 
-resource "aws_instance" "example" {
+resource "aws_instance" "web_server" {
   ami           = var.instance_ami
   instance_type = var.instance_type
   key_name      = var.key_name
@@ -15,12 +15,3 @@ resource "aws_instance" "example" {
   tags = var.tags
 }
 
-output "instance_id" {
-  value       = aws_instance.example.id
-  description = "ID of the EC2 instance"
-}
-
-output "public_ip" {
-  value       = aws_instance.example.public_ip
-  description = "Public IP of the EC2 instance"
-}
