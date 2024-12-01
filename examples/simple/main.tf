@@ -1,20 +1,20 @@
 terraform {
   backend "remote" {
-    hostname     = "app.terraform.io"         # Terraform Cloud's endpoint
-    organization = "chem"                     # Your Terraform Cloud organization
+    hostname     = "app.terraform.io"         # Terraform Cloud endpoint
+    organization = "chem"                     # Terraform Cloud organization
 
     workspaces {
-      name = "terraform-aws-ec2-instance"     # Name of your Terraform Cloud workspace
+      name = "terraform-aws-ec2-instance"     # Terraform Cloud workspace name
     }
   }
 }
 
 provider "aws" {
-  region = var.region                         # Region is passed as a variable
+  region = var.region                         # AWS region passed as a variable
 }
 
 module "ec2_instance" {
-  source        = "../../modules/ec2-instance"  # Correct path to the module
+  source        = "${path.root}/../../modules/ec2-instance"  # Use path.root for proper resolution
   instance_ami  = "ami-0c11a84584d4e09dd"
   region        = "us-east-2"
   instance_type = "t2.micro"
@@ -26,4 +26,3 @@ module "ec2_instance" {
     Environment = "Test"
   }
 }
-
