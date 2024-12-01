@@ -28,6 +28,12 @@ variable "volume_size" {
   default     = 40
 }
 
+variable "ami_id" {
+  description = "The AMI ID for the EC2 instance"
+  type        = string
+  default     = "ami-0c80e2b6ccb9ad6d1"  # Replace with your desired default value
+}
+
 variable "tags" {
   description = "Tags to apply to the instance"
   type        = map(string)
