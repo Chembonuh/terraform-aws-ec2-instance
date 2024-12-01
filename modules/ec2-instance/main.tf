@@ -14,4 +14,3 @@ resource "aws_instance" "example" {
 
   tags = var.tags
 }
-
