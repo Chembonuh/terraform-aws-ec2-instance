@@ -1,28 +1,25 @@
 terraform {
   backend "remote" {
-    hostname     = "app.terraform.io"         # Terraform Cloud's endpoint
-    organization = "chem"                     # Your Terraform Cloud organization
+    hostname     = "app.terraform.io"
+    organization = "chem"
 
     workspaces {
-      name = "terraform-aws-ec2-instance"     # Name of your Terraform Cloud workspace
+      name = "terraform-aws-ec2-instance"
     }
   }
 }
 
 provider "aws" {
-  region = var.region                         # Region is passed as a variable
+  region = var.region
 }
 
 module "ec2_instance" {
-  source        = "../../modules/ec2-instance"  # Correct path to the module
-  instance_ami  = "ami-0c11a84584d4e09dd"
-  region        = "us-east-2"
-  instance_type = "t2.micro"
-  key_name      = "my-key-pair"
-  volume_size   = 40
+  source        = "../../modules/ec2-instance"
+  instance_ami  = var.instance_ami
+  region        = var.region
+  instance_type = var.instance_type
+  key_name      = var.key_name
+  volume_size   = var.volume_size
 
-  tags = {
-    Name        = "ExampleInstance"
-    Environment = "Test"
-  }
+  tags = var.tags
 }

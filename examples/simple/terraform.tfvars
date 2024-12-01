@@ -1,5 +1,5 @@
 region        = "us-east-2"
-instance_ami  = "ami-0c80e2b6ccb9ad6d1"  # Matches the updated variable
+instance_ami  = "ami-0c80e2b6ccb9ad6d1"
 instance_type = "t2.micro"
 key_name      = "wahala"
 volume_size   = 40
