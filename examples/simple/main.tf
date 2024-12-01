@@ -19,7 +19,6 @@ module "ec2_instance" {
   instance_ami  = var.instance_ami
   instance_type = var.instance_type
   volume_size   = var.volume_size
-  key_name      = var.key_name
   tags          = var.tags
 }
 
