@@ -14,15 +14,11 @@ provider "aws" {
 }
 
 module "ec2_instance" {
-  source        = "../../modules/ec2-instance"  # Correct path to the module
-  instance_ami  = "ami-0c11a84584d4e09dd"
-  region        = "us-east-2"
-  instance_type = "t2.micro"
-  key_name      = "my-key-pair"
-  volume_size   = 40
-
-  tags = {
-    Name        = "ExampleInstance"
-    Environment = "Test"
-  }
+  source        = "./modules/ec2-instance"
+  region        = var.region
+  instance_ami  = var.instance_ami
+  instance_type = var.instance_type
+  volume_size   = var.volume_size
+  key_name      = var.key_name
+  tags          = var.tags
 }
