@@ -1,3 +1,17 @@
+terraform {
+  required_version = ">= 1.3.0"
+
+  backend "remote" {
+    hostname     = "app.terraform.io"
+    organization = "chem"  # Replace with your organization name
+
+    workspaces {
+      name = "terraform-aws-ec2-instance"
+    }
+  }
+}
+
+
 provider "aws" {
   region = var.region
 }
