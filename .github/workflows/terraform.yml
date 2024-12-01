@@ -20,8 +20,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Debug Directory Structure
-        run: ls -R
+      
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
@@ -39,6 +38,9 @@ jobs:
       - name: Validate Terraform
         working-directory: .
         run: terraform validate
+
+      env:
+        TFC_TOKEN: ${{ secrets.TFC_TOKEN }}
 
   # Job 2: Publish Terraform Module to TFC Registry
   publish:
