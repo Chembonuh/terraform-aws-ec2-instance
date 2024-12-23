@@ -7,7 +7,7 @@ variable "region" {
 variable "instance_ami" {
   description = "The AMI ID for the EC2 instance"
   type        = string
-  default     = "ami-0c11a84584d4e09dd"
+  default     = "ami-0010f97cebdb3afbb #ami-0c11a84584d4e09dd"
 }
 
 variable "instance_type" {

@@ -106,3 +106,4 @@ jobs:
       - name: Terraform Plan
         working-directory: . # Main directory
         run: terraform plan
+

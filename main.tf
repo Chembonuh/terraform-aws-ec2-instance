@@ -3,7 +3,7 @@ terraform {
 
   backend "remote" {
     hostname     = "app.terraform.io"
-    organization = "chem"  # Replace with your organization name
+    organization = "chem"
 
     workspaces {
       name = "terraform-aws-ec2-instance"
