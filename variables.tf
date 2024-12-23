@@ -31,7 +31,7 @@ variable "volume_size" {
 variable "ami_id" {
   description = "The AMI ID for the EC2 instance"
   type        = string
-  default     = "ami-0c80e2b6ccb9ad6d1" # Replace with your desired default value
+  default     = "ami-0010f97cebdb3afbb" # Replace with your desired default value
 }
 
 variable "tags" {

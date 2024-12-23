@@ -10,7 +10,7 @@ module "ec2_instance" {
   version       = "1.0.0"
 
   region        = "us-east-2"
-  instance_ami  = "ami-0c11a84584d4e09dd"
+  instance_ami  = "ami-0010f97cebdb3afbb"
   instance_type = "t2.micro"
   volume_size   = 40
   tags = {
