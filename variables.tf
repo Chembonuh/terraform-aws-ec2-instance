@@ -19,7 +19,7 @@ variable "instance_type" {
 variable "key_name" {
   description = "The SSH key name for accessing the instance"
   type        = string
-  default     = "wahala"
+  default     = "ansible"
 }
 
 variable "volume_size" {
@@ -31,7 +31,7 @@ variable "volume_size" {
 variable "ami_id" {
   description = "The AMI ID for the EC2 instance"
   type        = string
-  default     = "ami-0010f97cebdb3afbb" # Replace with your desired default value
+  default     = "ami-0e52ac869eb1c2147" # Replace with your desired default value
 }
 
 variable "tags" {
