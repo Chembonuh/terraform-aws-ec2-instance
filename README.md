@@ -18,7 +18,7 @@ module "ec2_instance" {
     Environment = "Production"
     Project     = "MyApp"
   }
-  key_name = "wahala"
+  key_name = "ansible"
 }
 
 
