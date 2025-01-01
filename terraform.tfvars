@@ -5,7 +5,7 @@ instance_type = "t2.micro"
 key_name      = "ansible"
 
 tags = {
-  Name        = "ExampleInstance"
+  Name        = "test"
   Environment = "Test"
 }
 
