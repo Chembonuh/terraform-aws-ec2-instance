@@ -18,7 +18,7 @@ module "pi_instance" {
     pi_ssh_public_key_name     = var.pi_ssh_public_key_name
     pi_image_id                = var.pi_image_id
     pi_networks                = var.pi_networks
-    pi_instance_name           = each.value
+    pi_instance_name           = var.pi_instance_name
     pi_sap_profile_id          = var.pi_sap_profile_id           #(optional, default null)
     pi_server_type             = var.pi_server_type              #(optional, default null)
     pi_number_of_processors    = var.pi_number_of_processors     #(optional, default null)

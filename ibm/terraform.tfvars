@@ -25,7 +25,7 @@ pi_networks = [
 ]
 
 # Instance Name
-pi_instance_name = ["LPAR1", "LPAR2", "LPAR3"]                        # From ibm.tf: Instance name
+pi_instance_name = ["instance1", "instance2"]
 
 # SAP Profile ID
 pi_sap_profile_id = null                                         # Optional, leave null if unused
