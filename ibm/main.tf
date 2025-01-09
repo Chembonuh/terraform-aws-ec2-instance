@@ -1,6 +1,6 @@
 module "pi_instance" {
     source = "terraform-ibm-modules/powervs-instance/ibm"
-    version = "var.version"
+    version = "2.3.0"
 
     pi_workspace_guid          = var.pi_workspace_guid
     pi_ssh_public_key_name     = var.pi_ssh_public_key_name

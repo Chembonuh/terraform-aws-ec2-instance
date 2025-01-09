@@ -122,7 +122,3 @@ variable "pi_user_tags" {
   type        = map(string)
   default     = null
 }
-variable "version" {
-    description = "module version"
-    type = string
-}
