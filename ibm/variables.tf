@@ -41,7 +41,7 @@ variable "pi_networks" {
 
 variable "pi_instance_name" {
   description = "List of instance names for the LPARs"
-  type        = list(string)
+  type        = string
 }
 # Optional Variables
 variable "pi_sap_profile_id" {

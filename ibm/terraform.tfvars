@@ -25,7 +25,7 @@ pi_networks = [
 ]
 
 # Instance Name
-pi_instance_name = ["instance1", "instance2"]
+pi_instance_name = Lpar1
 
 # SAP Profile ID
 pi_sap_profile_id = null                                         # Optional, leave null if unused
