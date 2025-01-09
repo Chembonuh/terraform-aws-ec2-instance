@@ -70,11 +70,15 @@ pi_existing_volume_ids = []                                    # Optional, leave
 # Storage Configuration
 pi_storage_config = [
   {
-    type     = "disk"           # Storage type, e.g., "disk" or "ssd"
-    size     = 100              # Storage size in GB
-    location = "us-east-1"         # Location or zone of the storage
+    name  = "filesystem1"       # Name of the file system
+    size  = "100"               # Size in GB
+    count = "1"                 # Number of storage volumes for striping
+    tier  = "gold"              # Storage tier (e.g., "gold", "silver")
+    mount = "/mnt/filesystem1"  # Mount point on the OS
+    pool  = "pool1"             # (Optional) Storage pool
   }
 ]
+
                                        # Optional, leave empty if unused
 # Instance Initialization for Linux
 pi_instance_init_linux = {}                                    # Optional, leave empty if unused

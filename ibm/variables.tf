@@ -110,16 +110,20 @@ variable "pi_existing_volume_ids" {
 }
 
 variable "pi_storage_config" {
-  description = "The storage configuration for the instance"
+  description = "File systems to be created and attached to PowerVS instance"
   type = list(
     object({
-      type     = string
-      size     = number
-      location = string
+      name  = string
+      size  = string
+      count = string
+      tier  = string
+      mount = string
+      pool  = optional(string)
     })
   )
   default = []
 }
+
 
 variable "pi_instance_init_linux" {
   description = "Linux initialization configuration for the instance (optional)"
