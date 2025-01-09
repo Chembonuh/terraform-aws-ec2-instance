@@ -1,3 +1,9 @@
+terraform {
+  backend "local" {
+    path = "./terraform.tfstate"
+  }
+}
+
 module "pi_instance" {
     source = "terraform-ibm-modules/powervs-instance/ibm"
     version = "2.3.0"
