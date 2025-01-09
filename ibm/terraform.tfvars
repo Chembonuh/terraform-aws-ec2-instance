@@ -24,7 +24,7 @@ pi_instance_name = ["LPAR1", "LPAR2", "LPAR3"]                        # From ibm
 pi_sap_profile_id = null                                         # Optional, leave null if unused
 
 # Server Type
-pi_server_type = e980                                           # Optional, leave null if unused
+pi_server_type ="e980"                                        # Optional, leave null if unused
 
 # Number of Processors
 pi_number_of_processors = "1"                                # Optional, leave null if unused
