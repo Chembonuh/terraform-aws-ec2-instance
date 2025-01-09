@@ -60,7 +60,7 @@ pi_instance_init_linux = {}                                    # Optional, leave
 pi_network_services_config = {}                               # Optional, leave empty if unused
 
 
-#network
+version = "1.55"
 
 # User Tags
 pi_user_tags = {                                               # Optional, customize as needed

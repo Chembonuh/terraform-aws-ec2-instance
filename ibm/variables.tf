@@ -122,7 +122,7 @@ variable "pi_user_tags" {
   type        = map(string)
   default     = null
 }
-variable "pi_networks" {
-  description = "List of network VLAN IDs (public and private) to attach to the instance"
-  type        = list(string)
+variable "version" {
+    description = "module version"
+    type = string
 }
