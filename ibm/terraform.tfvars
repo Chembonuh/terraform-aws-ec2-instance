@@ -12,7 +12,7 @@ pi_workspace_guid = "4c26798d-1faf-46ba-ac41-83edc5b75de4"
 pi_ssh_public_key_name = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCikl9ulbIeAsd718VvwqY973gP7hx6PInznxIuOl5ULJmS7PQ3c0lybSGH0YQDb9rTSFd1ofpdFBY9RVtnRVW3ocAlmUjyyrMJzOc28WDF/rC6duRffvep9wi305B5xYHJ1yySjONlJQBKuZRDWt/yHZDXGII/CevvAh1aTdT4UVQrsR2khBoiFMiaA5YgA+a/T0FVQChuixBToxuk5QKrfq9w/e3yvWfHMxbHaxTAwL3CnMxAl/7/GSVg1h3L5mC9rG4xqZjA15ocsSZt482XEvLYHDJlxMN9EFrDriINpMxuXEg3FJmjv52DVyQKbdf5YLKLgQ65m4hFIzTOe7nf ansible@hub.example.com"
 
 # Image ID
-pi_image_id = "IBMi:75-04-2924-1"
+pi_image_id = "0798b613-f3e3-4eb6-9469-7d9b3db7d712"
 
 # Networks
 pi_networks = [
