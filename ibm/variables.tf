@@ -127,21 +127,21 @@ variable "pi_storage_config" {
 }
 
 
-variable "pi_instance_init_linux" {
-  description = "Linux initialization configuration for the instance (optional)"
-  type        = map(any)
-  default     = null
-}
+# variable "pi_instance_init_linux" {
+#   description = "Linux initialization configuration for the instance (optional)"
+#   type        = map(any)
+#   default     = null
+# }
 
-variable "pi_network_services_config" {
-  description = "Network services configuration for the instance (optional)"
-  type        = map(any)
-  default     = null
-}
+# variable "pi_network_services_config" {
+#   description = "Network services configuration for the instance (optional)"
+#   type        = map(any)
+#   default     = null
+# }
 
-variable "pi_user_tags" {
-  description = "User-defined tags for the instance (optional)"
-  type        = list(string)
-  default     = [] # Default to an empty list if not used
-}
+# variable "pi_user_tags" {
+#   description = "User-defined tags for the instance (optional)"
+#   type        = list(string)
+#   default     = null
+# }
 

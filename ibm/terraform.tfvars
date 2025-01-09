@@ -80,7 +80,7 @@ pi_network_services_config = {}                               # Optional, leave 
 
 
 # User Tags
-pi_user_tags = {                                               # Optional, customize as needed
-  environment = "production"
-  owner       = "ansible"
-}
+# pi_user_tags = {                                               # Optional, customize as needed
+#   environment = "production"
+#   owner       = "ansible"
+# }
