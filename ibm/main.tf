@@ -24,7 +24,7 @@ module "pi_instance" {
     pi_number_of_processors    = var.pi_number_of_processors     #(optional, default null)
     pi_memory_size             = var.pi_memory_size              #(optional, default null)
     pi_cpu_proc_type           = var.pi_cpu_proc_type            #(optional, default check vars)
-    pi_boot_image_storage_pool = vat.pi_boot_image_storage_pool  #(optional, default null)
+    pi_boot_image_storage_pool = var.pi_boot_image_storage_pool  #(optional, default null)
     pi_boot_image_storage_tier = var.pi_boot_image_storage_tier  #(optional, default null)
     pi_replicants              = var.pi_replicants               #(optional, default null)
     pi_placement_group_id      = var.pi_placement_group_id       #(optional, default null)

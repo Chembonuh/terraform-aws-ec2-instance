@@ -89,9 +89,12 @@ variable "pi_boot_image_storage_tier" {
 }
 
 variable "pi_replicants" {
-  description = "The number of replicants for the instance (optional)"
-  type        = number
-  default     = null
+  description = "The replicants for the instance (optional)"
+  type = list(object({
+    name = string
+    value = string
+  }))
+  default = null
 }
 
 variable "pi_placement_group_id" {

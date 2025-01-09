@@ -19,7 +19,7 @@ pi_image_id = "IBMi:75-04-2924-1"         # From ibm.tf: Image ID
 
 pi_networks = [
   {
-    name = "private-network-1"
+    name = "public-192_168_7_16-28-VLAN_2073"
     id   = "41a62bfb-da6a-4e21-8f76-ea6cf5982871"
   }
 ]
