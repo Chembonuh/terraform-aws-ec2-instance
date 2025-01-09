@@ -6,7 +6,7 @@ zone   = "us-east-1"
 ibmcloud_api_key = "W2WCo3b1aGHF-V8yjP_LEX4dw_1Sx3D1w6t4Yit35eiN"
 
 # Workspace GUID
-pi_workspace_guid = "4c19cd93c-10f8-46f9-904c-51c2ff04bfe4"
+pi_workspace_guid = "4c26798d-1faf-46ba-ac41-83edc5b75de4  "
 
 # SSH Public Key Name
 pi_ssh_public_key_name = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCikl9ulbIeAsd718VvwqY973gP7hx6PInznxIuOl5ULJmS7PQ3c0lybSGH0YQDb9rTSFd1ofpdFBY9RVtnRVW3ocAlmUjyyrMJzOc28WDF/rC6duRffvep9wi305B5xYHJ1yySjONlJQBKuZRDWt/yHZDXGII/CevvAh1aTdT4UVQrsR2khBoiFMiaA5YgA+a/T0FVQChuixBToxuk5QKrfq9w/e3yvWfHMxbHaxTAwL3CnMxAl/7/GSVg1h3L5mC9rG4xqZjA15ocsSZt482XEvLYHDJlxMN9EFrDriINpMxuXEg3FJmjv52DVyQKbdf5YLKLgQ65m4hFIzTOe7nf ansible@hub.example.com"
