@@ -29,7 +29,7 @@ variable "pi_image_id" {
 }
 
 variable "pi_networks" {
-  description = "Existing list of private subnet ids to be attached to an instance. The first element will become the primary interface."
+  description = "List of private subnets to attach to the instance. The first element becomes the primary interface."
   type = list(
     object({
       name = string
@@ -40,54 +40,54 @@ variable "pi_networks" {
 }
 
 variable "pi_instance_name" {
-  description = "List of instance names for the LPARs"
+  description = "Name of the LPAR instance"
   type        = string
 }
-# Optional Variables
+
 variable "pi_sap_profile_id" {
-  description = "The SAP profile ID for the instance (optional)"
+  description = "SAP profile ID for the instance"
   type        = string
   default     = null
 }
 
 variable "pi_server_type" {
-  description = "The server type for the instance (optional)"
+  description = "Server type for the instance"
   type        = string
   default     = null
 }
 
 variable "pi_number_of_processors" {
-  description = "The number of processors for the instance (optional)"
+  description = "Number of processors for the instance"
   type        = number
   default     = null
 }
 
 variable "pi_memory_size" {
-  description = "The memory size in GB for the instance (optional)"
+  description = "Memory size in GB for the instance"
   type        = number
   default     = null
 }
 
 variable "pi_cpu_proc_type" {
-  description = "The processor type for the CPU (e.g., shared, dedicated, or capped)"
+  description = "Processor type for the CPU (e.g., shared, dedicated, capped)"
   type        = string
   default     = null
 }
 
 variable "pi_boot_image_storage_pool" {
-  description = "The boot image storage pool for the instance (optional)"
+  description = "Boot image storage pool for the instance"
   type        = string
   default     = null
 }
 
 variable "pi_boot_image_storage_tier" {
-  description = "The boot image storage tier for the instance (optional)"
+  description = "Boot image storage tier for the instance"
   type        = string
   default     = null
 }
 
 variable "pi_replicants" {
-  description = "The replication configuration for provisioning multiple instances"
+  description = "Replication configuration for provisioning multiple instances"
   type = object({
     count  = number
     policy = string
@@ -98,21 +98,14 @@ variable "pi_replicants" {
   }
 }
 
-
 variable "pi_placement_group_id" {
-  description = "The placement group ID for the instance (optional)"
+  description = "Placement group ID for the instance"
   type        = string
   default     = null
 }
 
-# variable "pi_existing_volume_ids" {
-#   description = "The existing volume IDs to attach to the instance (optional)"
-#   type        = list(string)
-#   default     = null
-# }
-
 variable "pi_storage_config" {
-  description = "File systems to be created and attached to PowerVS instance"
+  description = "File systems to be created and attached to the instance"
   type = list(
     object({
       name  = string
@@ -125,23 +118,3 @@ variable "pi_storage_config" {
   )
   default = []
 }
-
-
-# variable "pi_instance_init_linux" {
-#   description = "Linux initialization configuration for the instance (optional)"
-#   type        = map(any)
-#   default     = null
-# }
-
-# variable "pi_network_services_config" {
-#   description = "Network services configuration for the instance (optional)"
-#   type        = map(any)
-#   default     = null
-# }
-
-# variable "pi_user_tags" {
-#   description = "User-defined tags for the instance (optional)"
-#   type        = list(string)
-#   default     = null
-# }
-
