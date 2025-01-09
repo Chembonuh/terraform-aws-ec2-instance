@@ -8,8 +8,11 @@ terraform {
     workspaces {
       name = "ibm"
     }
+
+    token = "5AmM22Tr09rLhjhwoxG6kaHg0ekl6sdW4dJVxiuWPirHFkQGACn5xkU7ppD2wNiOhoVRuHTp6lcWEAEKZ3861yd4cQPwu5eOoHzHlJszCaWausKdkMdEDO1pxDlYs1HS" # Embedded token (not recommended)
   }
 }
+
 
 module "pi_instance" {
   source  = "terraform-ibm-modules/powervs-instance/ibm"
