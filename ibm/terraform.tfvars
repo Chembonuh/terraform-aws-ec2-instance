@@ -15,7 +15,14 @@ pi_ssh_public_key_name = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCikl9ulbIeAsd718
 pi_image_id = "IBMi:75-04-2924-1"         # From ibm.tf: Image ID
 
 # Networks
-pi_networks = "41a62bfb-da6a-4e21-8f76-ea6cf5982871"                                     # Replace with your network ID
+#pi_networks = "41a62bfb-da6a-4e21-8f76-ea6cf5982871"                                     # Replace with your network ID
+
+pi_networks = [
+  {
+    name = "private-network-1"
+    id   = "41a62bfb-da6a-4e21-8f76-ea6cf5982871"
+  }
+]
 
 # Instance Name
 pi_instance_name = ["LPAR1", "LPAR2", "LPAR3"]                        # From ibm.tf: Instance name

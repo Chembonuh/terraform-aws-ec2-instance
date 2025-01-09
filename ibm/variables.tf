@@ -29,9 +29,16 @@ variable "pi_image_id" {
 }
 
 variable "pi_networks" {
-  description = "List of networks to attach to the instance"
-  type        = string
+  description = "Existing list of private subnet ids to be attached to an instance. The first element will become the primary interface."
+  type = list(
+    object({
+      name = string
+      id   = string
+      cidr = optional(string)
+    })
+  )
 }
+
 
 variable "pi_instance_name" {
   description = "List of instance names for the LPARs"
