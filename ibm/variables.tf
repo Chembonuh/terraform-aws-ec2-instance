@@ -30,7 +30,7 @@ variable "pi_image_id" {
 
 variable "pi_networks" {
   description = "List of networks to attach to the instance"
-  type        = list(string)
+  type        = string
 }
 
 variable "pi_instance_name" {
