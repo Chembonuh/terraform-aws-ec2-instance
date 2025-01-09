@@ -105,11 +105,11 @@ variable "pi_placement_group_id" {
   default     = null
 }
 
-variable "pi_existing_volume_ids" {
-  description = "The existing volume IDs to attach to the instance (optional)"
-  type        = list(string)
-  default     = null
-}
+# variable "pi_existing_volume_ids" {
+#   description = "The existing volume IDs to attach to the instance (optional)"
+#   type        = list(string)
+#   default     = null
+# }
 
 variable "pi_storage_config" {
   description = "File systems to be created and attached to PowerVS instance"

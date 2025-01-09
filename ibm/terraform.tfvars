@@ -57,7 +57,7 @@ pi_replicants = {
 pi_placement_group_id = "52dfbe61-1135-4083-ae4a-921cb136fa41"                             # Optional, leave null if unused
 
 # Existing Volume IDs
-pi_existing_volume_ids = []                                    # Optional, leave empty if unused
+#pi_existing_volume_ids = []                                    # Optional, leave empty if unused
 
 # Storage Configuration
 pi_storage_config = [
