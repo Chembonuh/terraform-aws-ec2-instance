@@ -110,9 +110,15 @@ variable "pi_existing_volume_ids" {
 }
 
 variable "pi_storage_config" {
-  description = "The storage configuration for the instance (optional)"
-  type        = map(any)
-  default     = null
+  description = "The storage configuration for the instance"
+  type = list(
+    object({
+      type     = string
+      size     = number
+      location = string
+    })
+  )
+  default = []
 }
 
 variable "pi_instance_init_linux" {
@@ -129,6 +135,7 @@ variable "pi_network_services_config" {
 
 variable "pi_user_tags" {
   description = "User-defined tags for the instance (optional)"
-  type        = map(string)
-  default     = null
+  type        = list(string)
+  default     = [] # Default to an empty list if not used
 }
+

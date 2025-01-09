@@ -49,7 +49,17 @@ pi_boot_image_storage_pool = "auto-select"                          # Optional, 
 pi_boot_image_storage_tier = "tier3"                          # Optional, leave null if unused
 
 # Number of Replicants
-pi_replicants = "2"                                         # Optional, leave null if unused
+pi_replicants = [
+  {
+    name  = "replicant-1"
+    value = "LPAR1"
+  },
+  {
+    name  = "LPAR2"
+    value = "value-2"
+  }
+]
+                                        # Optional, leave null if unused
 
 # Placement Group ID
 pi_placement_group_id = "52dfbe61-1135-4083-ae4a-921cb136fa41"                             # Optional, leave null if unused
@@ -58,8 +68,14 @@ pi_placement_group_id = "52dfbe61-1135-4083-ae4a-921cb136fa41"                  
 pi_existing_volume_ids = []                                    # Optional, leave empty if unused
 
 # Storage Configuration
-pi_storage_config = {}                                         # Optional, leave empty if unused
-
+pi_storage_config = [
+  {
+    type     = "disk"           # Storage type, e.g., "disk" or "ssd"
+    size     = 100              # Storage size in GB
+    location = "us-east-1"         # Location or zone of the storage
+  }
+]
+                                       # Optional, leave empty if unused
 # Instance Initialization for Linux
 pi_instance_init_linux = {}                                    # Optional, leave empty if unused
 
