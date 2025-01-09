@@ -1,13 +1,15 @@
-terraform { 
-  cloud { 
-    organization = "chem" 
+terraform {
+  required_version = ">= 1.3.0"
 
-    workspaces { 
-      name = "ibm" 
-    } 
-  } 
+  backend "remote" {
+    hostname     = "app.terraform.io"
+    organization = "chem"
+
+    workspaces {
+      name = "ibm"
+    }
+  }
 }
-
 module "pi_instance" {
     source = "terraform-ibm-modules/powervs-instance/ibm"
     version = "2.3.0"
