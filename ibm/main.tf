@@ -30,7 +30,7 @@ module "pi_instance" {
     pi_placement_group_id      = var.pi_placement_group_id       #(optional, default null)
     pi_existing_volume_ids     = var.pi_existing_volume_ids      #(optional, default null)
     pi_storage_config          = var.pi_storage_config           #(optional, default check vars)
-    pi_instance_init_linux     = var.pi_instance_init_linux      #(optional, default check vars)
-    pi_network_services_config = var.pi_network_services_config  #(optional, default check vars)
-    pi_user_tags               = var.pi_user_tags                #(optional), default null
+    #pi_instance_init_linux     = var.pi_instance_init_linux      #(optional, default check vars)
+    # pi_network_services_config = var.pi_network_services_config  #(optional, default check vars)
+    # pi_user_tags               = var.pi_user_tags                #(optional), default null
 }

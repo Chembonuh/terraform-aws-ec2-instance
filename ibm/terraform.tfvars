@@ -25,7 +25,7 @@ pi_networks = [
 ]
 
 # Instance Name
-pi_instance_name = Lpar1
+pi_instance_name = "Lpar1"
 
 # SAP Profile ID
 pi_sap_profile_id = null                                         # Optional, leave null if unused
@@ -73,10 +73,10 @@ pi_storage_config = [
 
                                        # Optional, leave empty if unused
 # Instance Initialization for Linux
-pi_instance_init_linux = {}                                    # Optional, leave empty if unused
+# pi_instance_init_linux = {}                                    # Optional, leave empty if unused
 
-# Network Services Configuration
-pi_network_services_config = {}                               # Optional, leave empty if unused
+# # Network Services Configuration
+# pi_network_services_config = {}                               # Optional, leave empty if unused
 
 
 # User Tags
