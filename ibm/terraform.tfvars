@@ -48,19 +48,11 @@ pi_boot_image_storage_pool = "auto-select"                          # Optional, 
 # Boot Image Storage Tier
 pi_boot_image_storage_tier = "tier3"                          # Optional, leave null if unused
 
-# Number of Replicants
-pi_replicants = [
-  {
-    name  = "replicant-1"
-    value = "LPAR1"
-  },
-  {
-    name  = "LPAR2"
-    value = "value-2"
-  }
-]
-                                        # Optional, leave null if unused
-
+pi_replicants = {
+  count  = "2"
+  policy = "none"
+}
+                                  # Optional, leave null if unused
 # Placement Group ID
 pi_placement_group_id = "52dfbe61-1135-4083-ae4a-921cb136fa41"                             # Optional, leave null if unused
 
