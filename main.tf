@@ -16,7 +16,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "web_server" {
-  ami           = trimspace(var.instance_amii)
+  ami           = trimspace(var.instance_ami)
   instance_type = var.instance_type
   key_name      = var.key_name
 
