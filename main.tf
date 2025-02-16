@@ -16,7 +16,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "web_server" {
-  ami           = var.instance_ami
+  ami           = trimspace(var.instance_ami)  # Removes unwanted spaces
   instance_type = var.instance_type
   key_name      = var.key_name
 

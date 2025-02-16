@@ -42,4 +42,7 @@ variable "tags" {
     Environment = "Production"
   }
 }
+variable "instance_ami" {
+  default = "ami-08378f51ccbf61c5f"
+}
 
