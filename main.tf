@@ -32,23 +32,23 @@ resource "aws_instance" "web_server" {
               # Install LVM and XFS tools
               yum install -y lvm2 xfsprogs
 
-              # Identify the main disk (exclude root disk)
+              # Identify the main disk (excluding root disk)
               DISK=$(lsblk -dpno NAME | grep -v nvme0n1 | head -n 1)
 
               # Partition the disk: 2GB for /boot, rest as LVM PV
-              parted -s $DISK mklabel gpt
-              parted -s $DISK mkpart primary xfs 1MiB 2049MiB
-              parted -s $DISK mkpart primary 2049MiB 100%
+              parted -s $$DISK mklabel gpt
+              parted -s $$DISK mkpart primary xfs 1MiB 2049MiB
+              parted -s $$DISK mkpart primary 2049MiB 100%
 
               # Format and mount /boot
-              mkfs.xfs ${DISK}1
+              mkfs.xfs $$DISK"1"
               mkdir -p /boot
-              mount ${DISK}1 /boot
-              echo "${DISK}1 /boot xfs defaults 0 2" >> /etc/fstab
+              mount $$DISK"1" /boot
+              echo "$$DISK"1" /boot xfs defaults 0 2" >> /etc/fstab
 
               # Create LVM Physical Volume
-              pvcreate ${DISK}2
-              vgcreate vg00 ${DISK}2
+              pvcreate $$DISK"2"
+              vgcreate vg00 $$DISK"2"
 
               # Create Logical Volumes
               lvcreate -L 20G -n usrlv vg00
@@ -71,7 +71,7 @@ resource "aws_instance" "web_server" {
               mkswap /dev/vg00/swap
 
               # Create mount points
-              mkdir  /corp
+              mkdir -p /usr /opt /corp /tmp /home /var
 
               # Mount logical volumes
               mount /dev/vg00/usrlv /usr
@@ -93,6 +93,4 @@ resource "aws_instance" "web_server" {
               echo "/dev/vg00/varlv /var xfs defaults 0 2" >> /etc/fstab
               echo "/dev/vg00/swap none swap sw 0 0" >> /etc/fstab
               EOF
-
-  tags = var.tags
 }
