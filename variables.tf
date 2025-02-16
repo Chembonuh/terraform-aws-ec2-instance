@@ -19,7 +19,7 @@ variable "instance_type" {
 variable "key_name" {
   description = "The SSH key name for accessing the instance"
   type        = string
-  default     = "ansible"
+  default     = "Ansible"
 }
 
 variable "volume_size" {
