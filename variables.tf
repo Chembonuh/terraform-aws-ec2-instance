@@ -7,7 +7,7 @@ variable "region" {
 variable "instance_ami" {
   description = "The AMI ID for the EC2 instance"
   type        = string
-  default     = "ami-0010f97cebdb3afbb #ami-0c11a84584d4e09dd"
+  default     = "ami-08378f51ccbf61c5f #ami-0c11a84584d4e09dd"
 }
 
 variable "instance_type" {
@@ -27,13 +27,6 @@ variable "volume_size" {
   type        = number
   default     = 40
 }
-
-variable "ami_id" {
-  description = "The AMI ID for the EC2 instance"
-  type        = string
-  default     = "ami-0e52ac869eb1c2147" # Replace with your desired default value
-}
-
 variable "tags" {
   description = "Tags to apply to the instance"
   type        = map(string)
@@ -41,8 +34,5 @@ variable "tags" {
     Name        = "web_server"
     Environment = "Production"
   }
-}
-variable "instance_ami" {
-  default = "ami-08378f51ccbf61c5f"
 }
 
