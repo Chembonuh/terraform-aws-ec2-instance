@@ -9,9 +9,9 @@ resource "aws_instance" "web_server" {
 
   # Attach an additional EBS volume for LVM
   ebs_block_device {
-    device_name = "/dev/xvdh"  # Use a standard device name
-    volume_size = 100 # Example: 40GB
-    volume_type = "gp3"  # General Purpose SSD
+    device_name = "/dev/xvdh"  # Attach additional EBS volume
+    volume_size = 100  # Example: 40GB
+    volume_type = "gp3"
     delete_on_termination = true
   }
 
@@ -32,19 +32,19 @@ resource "aws_instance" "web_server" {
               done
 
               # Partition the disk: 2GB for /boot, rest as LVM PV
-              parted -s $DISK mklabel gpt
-              parted -s $DISK mkpart primary xfs 1MiB 2049MiB
-              parted -s $DISK mkpart primary 2049MiB 100%
+              parted -s $$DISK mklabel gpt
+              parted -s $$DISK mkpart primary xfs 1MiB 2049MiB
+              parted -s $$DISK mkpart primary 2049MiB 100%
 
               # Format and mount /boot
-              mkfs.xfs ${DISK}1
+              mkfs.xfs $$DISK"1"
               mkdir -p /boot
-              mount ${DISK}1 /boot
-              echo "${DISK}1 /boot xfs defaults 0 2" >> /etc/fstab
+              mount $$DISK"1" /boot
+              echo "$$DISK"1" /boot xfs defaults 0 2" >> /etc/fstab
 
               # Create LVM Physical Volume
-              pvcreate ${DISK}2
-              vgcreate vg00 ${DISK}2
+              pvcreate $$DISK"2"
+              vgcreate vg00 $$DISK"2"
 
               # Create Logical Volumes
               lvcreate -L 20G -n usrlv vg00
